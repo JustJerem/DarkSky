@@ -11,12 +11,10 @@ open class Weather(
         var latitude: Double,
         @SerializedName("longitude")
         var longitude: Double,
-        @SerializedName("offset")
-        var offset: Int,
         @PrimaryKey
         @SerializedName("timezone")
         var timezone: String
 
 ) : RealmObject() {
-    constructor() : this(null, 0.0, 0.0, 0, "")
+    constructor() : this(null, 0.0, 0.0, "")
 }

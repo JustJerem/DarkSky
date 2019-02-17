@@ -35,7 +35,7 @@ class WeatherRepository(private val service: WeatherService) {
      */
 
     fun getOfflineWeather(): Weather? {
-        return realm.where(Weather::class.java).findAll().where().equalTo("timezone", "America/New_York").findFirst()
+        return realm.where(Weather::class.java).findAllAsync().where().equalTo("timezone", "America/New_York").findFirst()
     }
 
     fun save(data: Weather) {

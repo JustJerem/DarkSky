@@ -15,9 +15,8 @@ class WeekAdapter(private val listener: WeekListener) : RecyclerView.Adapter<Vie
 
     private var items = ArrayList<DetailWeather>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_small_detail, parent, false))
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
+        ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_small_detail, parent, false))
 
     fun setItems(items: ArrayList<DetailWeather>) {
         this.items = items
@@ -36,8 +35,6 @@ class WeekAdapter(private val listener: WeekListener) : RecyclerView.Adapter<Vie
             holder.itemView.setOnClickListener { listener.showDetail(this.summary) }
         }
     }
-
-
 }
 
 class ViewHolder(view: View) : RecyclerView.ViewHolder(view)

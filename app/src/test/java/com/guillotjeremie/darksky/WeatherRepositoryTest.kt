@@ -44,7 +44,7 @@ class WeatherRepositoryTest : KoinTest {
     @Test
     fun `get data and check if correct`() {
         mockResponse("data.json", HttpURLConnection.HTTP_OK)
-        val weather = viewModel.getweekWeather().value
+        val weather = viewModel.getWeekWeather().value
 
         assertEquals(40.73061, weather?.latitude)
     }

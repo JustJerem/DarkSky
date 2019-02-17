@@ -19,7 +19,7 @@ class WeekViewModel(private val context: Context, private val repo: WeatherRepos
 
     private var weekWeather: MutableLiveData<Weather>? = null
 
-    fun getweekWeather(): LiveData<Weather> {
+    fun getWeekWeather(): LiveData<Weather> {
         if (weekWeather == null) {
             weekWeather = MutableLiveData()
             getWeekWeatherData()
@@ -47,8 +47,7 @@ class WeekViewModel(private val context: Context, private val repo: WeatherRepos
                         }
                     })
         } else {
-            val offlineWeather = repo.getOfflineWeather()
-            weekWeather?.postValue(offlineWeather)
+            weekWeather?.postValue(repo.getOfflineWeather())
         }
     }
 }

@@ -7,11 +7,7 @@ import io.realm.RealmObject
 
 open class DailyWeather(
         @SerializedName("data")
-        var detail: RealmList<DetailWeather>,
-        @SerializedName("icon")
-        var icon: String,
-        @SerializedName("summary")
-        var summary: String
+        var detail: RealmList<DetailWeather>
 ) : RealmObject() {
-    constructor() : this(RealmList(), "", "")
+    constructor() : this(RealmList())
 }

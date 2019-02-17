@@ -29,7 +29,6 @@ class WeekActivity : AppCompatActivity(), WeekListener {
     private val viewModel: WeekViewModel by viewModel()
     private val weekAdapter = WeekAdapter(this)
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_week)
@@ -37,7 +36,6 @@ class WeekActivity : AppCompatActivity(), WeekListener {
         initRecyclerView()
         initObservers()
     }
-
 
     private fun initRecyclerView() {
         val layoutManager = LinearLayoutManager(this)
@@ -47,7 +45,7 @@ class WeekActivity : AppCompatActivity(), WeekListener {
     }
 
     private fun initObservers() {
-        viewModel.getweekWeather().observe(this, Observer {
+        viewModel.getWeekWeather().observe(this, Observer {
             it?.let { weather ->
                 loader.visibility = View.GONE
                 updateAdapter(weather)

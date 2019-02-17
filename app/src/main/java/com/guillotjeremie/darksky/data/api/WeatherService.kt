@@ -6,7 +6,9 @@ import retrofit2.http.GET
 
 
 interface WeatherService {
-
+    /**
+     * Single instance of Retrofit for load data from DarkSky forecast
+     */
     @GET("$CITY_LAT,$CITY_LNG/?exclude=currently,minutely,hourly,flags")
     fun getWeekWeatherAsync(): Deferred<Weather>
 

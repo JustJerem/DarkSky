@@ -11,21 +11,20 @@ import rx.Observer
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
-
+/**
+ * This [WeekViewModel] keep reference on this data when view refresh (after rotation for example)
+ * Just one call needed per view
+ */
 class WeekViewModel(private val context: Context, private val repo: WeatherRepository) : ViewModel() {
 
-    fun getWeekWeather(): LiveData<Weather> {
-        return weekWeather
-    }
+    private var weekWeather: MutableLiveData<Weather>? = null
 
-    /**
-     * This [WeekViewModel] keep reference on this data when view refresh (after rotation for example)
-     * Just one call needed per view
-     */
-    private val weekWeather: MutableLiveData<Weather> by lazy {
-        MutableLiveData<Weather>().also {
+    fun getweekWeather(): LiveData<Weather> {
+        if (weekWeather == null) {
+            weekWeather = MutableLiveData()
             getWeekWeatherData()
         }
+        return weekWeather as MutableLiveData<Weather>
     }
 
     private fun getWeekWeatherData() {
@@ -44,11 +43,12 @@ class WeekViewModel(private val context: Context, private val repo: WeatherRepos
 
                         override fun onNext(item: Weather) {
                             repo.save(item)
-                            weekWeather.postValue(item)
+                            weekWeather?.postValue(item)
                         }
                     })
         } else {
-            weekWeather.postValue(repo.getOfflineWeather())
+            val offlineWeather = repo.getOfflineWeather()
+            weekWeather?.postValue(offlineWeather)
         }
     }
 }

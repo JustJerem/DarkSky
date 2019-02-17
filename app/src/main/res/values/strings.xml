@@ -9,4 +9,6 @@
     <string name="low">° low</string>
     <string name="high">° high</string>
     <string name="mph">mph</string>
+    <string name="next_days">Next days</string>
+    <string name="icon_for_current_weather">icon for current weather</string>
 </resources>

@@ -47,7 +47,7 @@ class WeekActivity : AppCompatActivity(), WeekListener {
     }
 
     private fun initObservers() {
-        viewModel.getWeekWeather().observe(this, Observer {
+        viewModel.getweekWeather().observe(this, Observer {
             it?.let { weather ->
                 loader.visibility = View.GONE
                 updateAdapter(weather)

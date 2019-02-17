@@ -1,13 +1,14 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
+apply plugin: 'kotlin-kapt'
+apply plugin: 'realm-android'
 apply plugin: 'kotlin-android-extensions'
+
 
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.guillotjeremie.darksky"
+        applicationId "com.example.darksky"
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
@@ -15,6 +16,10 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+
+        debug {
+            buildConfigField 'String', "DarkSkyAPIKey", '"110ff8d640d240033b87414975036ac8"'
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -23,12 +28,29 @@ android {
 }
 
 dependencies {
+
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
-    implementation 'androidx.core:core-ktx:1.1.0-alpha04'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+
+    // ANDROID
+    implementation "androidx.appcompat:appcompat:$app_compat_version"
+    implementation "androidx.constraintlayout:constraintlayout:$constraint_layout_version"
+    implementation "com.google.android.material:material:$material_version"
+
+    // KOIN
+    implementation "org.koin:koin-android:$koin_version"
+    implementation "org.koin:koin-android-viewmodel:$koin_version"
+
+    // KOTLIN
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // NETWORK
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:$retrofit_coroutines_adapter_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_gson_adapter_version"
+    implementation "com.google.code.gson:gson:$gson_version"
+
+    //RXandroid
+    implementation "io.reactivex:rxandroid:$rx_android"
+    implementation "io.reactivex:rxjava:$rx_java"
 }

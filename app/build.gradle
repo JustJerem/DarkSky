@@ -53,4 +53,12 @@ dependencies {
     //RXandroid
     implementation "io.reactivex:rxandroid:$rx_android"
     implementation "io.reactivex:rxjava:$rx_java"
+
+        // UNIT TESTING
+    testImplementation 'junit:junit:4.12'
+    testImplementation "org.koin:koin-test:$koin_version"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$okhttp_version"
+    testImplementation "org.jetbrains.kotlin:kotlin-test:$kotlin_version"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$mock_version"
+
 }

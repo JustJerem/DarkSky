@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Dark Sky</string>
+    <string name="weather_icon">weather icon</string>
+    <string name="fahrenheit">°F</string>
+    <string name="precipitation">precipitation</string>
+    <string name="uv">uv</string>
+    <string name="wind">wind</string>
+    <string name="humidity">humidity</string>
+    <string name="low">° low</string>
+    <string name="high">° high</string>
+    <string name="mph">mph</string>
 </resources>

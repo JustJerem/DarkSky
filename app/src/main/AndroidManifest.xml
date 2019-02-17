@@ -15,7 +15,7 @@
             android:name=".DarkSkyApplication"
             android:fullBackupContent="false"
             tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".MainActivity">
+        <activity android:name=".presentation.features.week.WeekActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
